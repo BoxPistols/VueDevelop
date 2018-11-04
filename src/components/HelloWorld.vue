@@ -93,7 +93,6 @@ button.btn {
       //         position: absolute;
       //         left: 0;
       //         top: 50%;
-
       animation-name: sizeScale;
       animation-duration: 0.3s;
     }
@@ -109,11 +108,11 @@ button.btn {
     font-size: 20px;
   }
   20% {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   50% {
-    font-size: 35px;
+    font-size: 24px;
   }
 
   100% {
