@@ -7,11 +7,13 @@
       <h2 v-show="showText">{{ tex }}</h2>
 
       <transition>
-      <div v-bind:class='{active:isActive}' v-if="this.showText">
-        <p class="m_like add">♡ {{ count + 1 }}</p>
+      <div class="org_mark" v-bind:class='{active:isActive}' v-if="this.showText">
+        <p class="m_like"><span class="a_mark add">♡</span></p>
+        <p class="a_count">{{ count + 1 }}</p>
       </div>
-      <div v-else>
-        <p class="m_like">♡ {{ count }}</p>
+      <div class="org_mark" v-else>
+        <p class="m_like"><span class="a_mark">♡</span></p>
+        <p class="a_count">{{ count }}</p>
       </div>
       </transition>  
     </div>        
@@ -60,22 +62,62 @@ li {
 a {
   color: #42b983;
 }
-.org_likeArea {
-  background: #eee;
-  cursor: pointer;
-}
+
 button.btn {
   padding: 15px 20px;
 }
-.active p {
+.active .add {
   color: red;
 }
 
+.org_likeArea {
+  //   background: #eee;
+  cursor: pointer;
+  //   flex-direction: column;
+  //   justy-items: center;
+}
+.org_mark {
+  //   background: aliceblue;
+
+  //   display: flex;
+  display: inline-flex;
+  align-items: center;
+}
 .m_like {
-  font-size: 20px;
-  transition: 0.3s;
-  &.add {
+  //   transition: 0.3s;
+  position: relative;
+  //   min-width: 100px;
+  .a_mark {
+    font-size: 20px;
+    &.add {
+      //         position: absolute;
+      //         left: 0;
+      //         top: 50%;
+
+      animation-name: sizeScale;
+      animation-duration: 0.3s;
+    }
+  }
+  .a_count {
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+}
+@keyframes sizeScale {
+  0% {
+    font-size: 20px;
+  }
+  20% {
     font-size: 30px;
+  }
+
+  50% {
+    font-size: 35px;
+  }
+
+  100% {
+    font-size: 20px;
   }
 }
 </style>
