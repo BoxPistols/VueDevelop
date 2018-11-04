@@ -90,9 +90,6 @@ button.btn {
   .a_mark {
     font-size: 20px;
     &.add {
-      //         position: absolute;
-      //         left: 0;
-      //         top: 50%;
       animation-name: sizeScale;
       animation-duration: 0.3s;
     }
