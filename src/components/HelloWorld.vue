@@ -1,12 +1,19 @@
 <template>
-  <div class="hello">
-    <h1>Are you like this?</h1>
+  <div class="hello">    
+    <h1>Are you like this?</h1>    
     
-    <button v-bind:class='{active:isActive}' v-on:click="toggle" v-show="tgl">{{ tgl }}</button>    
-    <h2 v-show="showMsg">{{ msg }}</h2>
-    <h2 v-show="showText">{{ tex }}</h2>
-    <p>{{ count }}</p>
-    
+    <div class="org_likeArea" v-on:click="toggle" v-show="tgl">
+      <h2 v-show="showMsg">{{ msg }}</h2>
+      <h2 v-show="showText">{{ tex }}</h2>
+
+      <div v-bind:class='{active:isActive}' v-if="this.showText">
+        <p>♡ {{ count + 1 }}</p>
+      </div>
+      <div v-else>
+        <p>♡ {{ count }}</p>
+      </div>
+    </div>        
+  
   </div>
 </template>
 
@@ -17,6 +24,7 @@ export default {
       tgl: 'toggle',
       msg: 'Please like!',
       tex: 'Remove like...',
+      isActive: true,
       showMsg: true,
       showText: false,
       count: 1,
@@ -26,7 +34,7 @@ export default {
     toggle: function() {
       this.showText = !this.showText;
       this.showMsg = !this.showMsg;
-      this.count = this.count + 1;
+      //       this.count = this.count;
       //       count = count + 1;
     },
   },
@@ -50,10 +58,14 @@ li {
 a {
   color: #42b983;
 }
-button {
-  padding: 10px 20px;
+.org_likeArea {
+  background: #eee;
+  cursor: pointer;
 }
-.active {
+button.btn {
+  padding: 15px 20px;
+}
+.active p {
   color: red;
 }
 </style>
