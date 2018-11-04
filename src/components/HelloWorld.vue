@@ -73,9 +73,10 @@ button.btn {
 .org_likeArea {
   //   background: #eee;
   cursor: pointer;
-  //   flex-direction: column;
-  //   justy-items: center;
+  width: fit-content;
+  margin: auto;
 }
+
 .org_mark {
   //   background: aliceblue;
 
