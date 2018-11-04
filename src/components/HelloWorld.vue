@@ -79,7 +79,6 @@ button.btn {
 
 .org_mark {
   //   background: aliceblue;
-
   //   display: flex;
   display: inline-flex;
   align-items: center;
