@@ -1,8 +1,12 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Are you like this?</h1>
+    
+    <button v-bind:class='{active:isActive}' v-on:click="toggle" v-show="tgl">{{ tgl }}</button>    
+    <h2 v-show="showMsg">{{ msg }}</h2>
     <h2 v-show="showText">{{ tex }}</h2>
-    <button v-on:click="toggle">Toggle</button>
+    <p>{{ count }}</p>
+    
   </div>
 </template>
 
@@ -10,21 +14,27 @@
 export default {
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      tex: 'Tex Data',
+      tgl: 'toggle',
+      msg: 'Please like!',
+      tex: 'Remove like...',
+      showMsg: true,
       showText: false,
+      count: 1,
     };
   },
   methods: {
     toggle: function() {
       this.showText = !this.showText;
+      this.showMsg = !this.showMsg;
+      this.count = this.count + 1;
+      //       count = count + 1;
     },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang='scss' scoped>
 h1,
 h2 {
   font-weight: normal;
@@ -39,5 +49,11 @@ li {
 }
 a {
   color: #42b983;
+}
+button {
+  padding: 10px 20px;
+}
+.active {
+  color: red;
 }
 </style>
