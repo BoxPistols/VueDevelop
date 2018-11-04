@@ -6,12 +6,14 @@
       <h2 v-show="showMsg">{{ msg }}</h2>
       <h2 v-show="showText">{{ tex }}</h2>
 
+      <transition>
       <div v-bind:class='{active:isActive}' v-if="this.showText">
-        <p>♡ {{ count + 1 }}</p>
+        <p class="m_like add">♡ {{ count + 1 }}</p>
       </div>
       <div v-else>
-        <p>♡ {{ count }}</p>
+        <p class="m_like">♡ {{ count }}</p>
       </div>
+      </transition>  
     </div>        
   
   </div>
@@ -67,5 +69,13 @@ button.btn {
 }
 .active p {
   color: red;
+}
+
+.m_like {
+  font-size: 20px;
+  transition: 0.3s;
+  &.add {
+    font-size: 30px;
+  }
 }
 </style>
