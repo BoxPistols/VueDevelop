@@ -86,7 +86,6 @@ button.btn {
 .m_like {
   //   transition: 0.3s;
   position: relative;
-  //   min-width: 100px;
   .a_mark {
     font-size: 20px;
     &.add {
